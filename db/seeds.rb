@@ -23,7 +23,7 @@ end
 puts " Creating Users"
 10.times do
     the_name = Faker::Name.name
-    User.create(first_name: the_name.split[0], last_name: the_name.split[1], description: Faker::Markdown.emphasis, email: "wdsrfwfefefwsefw@yopmail.com")
+    User.create(first_name: the_name.split[0], last_name: the_name.split[1], description: Faker::Markdown.emphasis, email: "#{the_name.split.join}@yopmail.com", password: "coolos")
 end
 
 puts " Creating Attendances"
