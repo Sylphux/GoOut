@@ -1,0 +1,19 @@
+<% content_for :title, "New attendance" %>
+
+<h1>New attendance</h1>
+
+<%= render "form", attendance: @attendance %>
+
+<br>
+
+<%for n in User.all do%>
+  <p>ID : <%= n.id%> | Name : <%= n.first_name%></p>
+<%end%>
+
+<%for n in Event.all do%>
+  <p>ID : <%= n.id%> | Event : <%= n.title%></p>
+<%end%>
+
+<div>
+  <%= link_to "Back to attendances", attendances_path %>
+</div>
