@@ -2,15 +2,29 @@
 
 <% content_for :title, "Events" %>
 
-<h1>Events</h1>
+<section>
+  <div class="section-content">
+    <h1>Events</h1>
+  </div>
+</section>
 
-<div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
-  <% end %>
+<div class="content">
+
+  <div id="events">
+    <% @events.each do |event| %>
+      <section>
+        <div class="section-content">
+          <%= render event %>
+          <p>
+            <%= link_to "Show this event", event %>
+          </p>
+        </div>
+      </section>
+    <% end %>
+  </div>
+
 </div>
 
-<%= link_to "New event", new_event_path %>
+<section>
+    <%= link_to "New event", new_event_path %>
+</section>

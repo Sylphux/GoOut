@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <%# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> %>
+    <%# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> %>
     <title><%= content_for(:title) || "Go Out" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,39 +10,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">GoOut</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= events_path %>">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= new_event_path %>">Make an event</a>
-          </li>
-          <%if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Mon Profil", user_path(current_user.id), class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %>
-            </li>
-          <%else%>
-            <li class="nav-item active">
-              <a class="nav-link" href="<%= new_user_registration_path %>">S'inscrire</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
-            </li>
-          <%end%>
-        </ul>
-      </div>
-    </nav>
-
     <%= yield :head %>
+
+
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
@@ -57,6 +27,28 @@
   </head>
 
   <body>
+
+    <nav>
+      <h1><a href="/">GoOut</a></h1>
+      <ul class="nav-menu">
+        <li><a href="<%= events_path %>">Home</a></li>
+        <li><a href="<%= new_event_path %>">Make an event</a></li>
+        <%if user_signed_in? %>
+            <li><%= link_to "Mon Profil", user_path(current_user.id)%></li>
+            <li><%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete} %></li>
+          <%else%>
+            <li><a href="<%= new_user_registration_path %>">S'inscrire</a></li>
+            <li><a href="<%= new_user_session_path %>">Se connecter</a></li>
+          <%end%>
+      </ul>
+    </nav>
+
     <%= yield %>
+
+    <footer>
+      <p>This project is a test</p>
+      <p>This is a footer</p>
+    </footer>
+
   </body>
 </html>

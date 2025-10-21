@@ -1,11 +1,19 @@
 <% content_for :title, "New event" %>
 
-<h1>New event</h1>
+<section>
+  <h1>New event</h1>
+</section>
 
-<%= render "form", event: @event %>
-
-<br>
-
-<div>
-  <%= link_to "Back to events", events_path %>
+<div class="content">
+  <section>
+    <div class="section-content">
+      <%= render "form", event: @event %>
+    </div>
+  </section>
 </div>
+
+<section>
+  <div>
+    <%= link_to "Back to events", events_path %>
+  </div>
+</section>
