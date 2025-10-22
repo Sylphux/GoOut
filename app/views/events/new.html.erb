@@ -1,19 +1,28 @@
 <% content_for :title, "New event" %>
 
-<section>
-  <h1>New event</h1>
-</section>
+
 
 <div class="content">
+
+  <section class="large-section">
+    <div class="section-content">
+      <h1>New event</h1>
+      <p>Come on, go ahead and create a new event to bring life to this website. It really deserves it, I swear.</p>
+    </div>
+  </section>
+
   <section>
     <div class="section-content">
       <%= render "form", event: @event %>
     </div>
   </section>
+
+  <section class="large-section">
+    <div class="section-content">
+      <%= link_to "Back to events", events_path %>
+    </div>
+  </section>
+
 </div>
 
-<section>
-  <div>
-    <%= link_to "Back to events", events_path %>
-  </div>
-</section>
+

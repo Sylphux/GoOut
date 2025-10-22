@@ -1,17 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="content">
-  <section>
+
+  <section class="large-section">
     <div class="section-content">
-      <%= render @event %>
+      <h1><%= @event.title %></h1>
     </div>
   </section>
   <section>
     <div class="section-content">
-      <%= link_to "Edit this event", edit_event_path(@event) %> |
-      <%= link_to "Back to events", events_path %>
-
-      <%= button_to "Destroy this event", @event, method: :delete %>
+      <%= render @event %><br>
+      <%if current_user && current_user.id == @event.user_id %>
+        <%= link_to "Edit this event", edit_event_path(@event) %> |
+        <%= link_to "Back to events", events_path %>
+        <%= button_to "Destroy this event", @event, method: :delete %>
+      <%end%>
     </div>
   </section>
 </div>

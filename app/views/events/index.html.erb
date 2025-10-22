@@ -2,29 +2,16 @@
 
 <% content_for :title, "Events" %>
 
-<section>
-  <div class="section-content">
-    <h1>Events</h1>
-  </div>
-</section>
-
 <div class="content">
+  <section class="large-section">
+    <div class="section-content">
+      <h1>Events</h1>
+      <p class="lead">Here are some nice event created by our members to try and go touch grass with a goal.</p>
+      <p>So just be nice and go to some events. It will be fun and you'll for sure find new types of grass to touch anyway.</p>
+      <p>Yes this is some stupid text to fill a bit more space so it's not that cringe</p>
+    </div>
+  </section>
 
-  <div id="events">
-    <% @events.each do |event| %>
-      <section>
-        <div class="section-content">
-          <%= render event %>
-          <p>
-            <%= link_to "Show this event", event %>
-          </p>
-        </div>
-      </section>
-    <% end %>
-  </div>
+  <%= render "event_list" %>
 
 </div>
-
-<section>
-    <%= link_to "New event", new_event_path %>
-</section>

@@ -1,32 +1,35 @@
 <div id="<%= dom_id event %>">
-  <p>
-    <strong>Start date:</strong>
-    <%= event.start_date %>
-  </p>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= event.duration %>
-  </p>
+  <div class="card-simple">
+    <h4>
+      <%= event.title %>
+    </h4>
+    <p>
+      <strong>Description:</strong>
+      <%= event.description %>
+    </p>
+    <p>
+      <strong>Date :</strong>
+      <%= event.start_date %>
+    </p>
+    <p>
+      <strong>Duration :</strong>
+      <%= event.duration %> minutes
+    </p>
+    <p>
+      <strong>Location:</strong>
+      <%= event.location %>
+    </p>
+    <p>
+      <%= event.price %> €
+    </p>
+  </div>
+  
 
-  <p>
-    <strong>Title:</strong>
-    <%= event.title %>
-  </p>
+  
 
-  <p>
-    <strong>Description:</strong>
-    <%= event.description %>
-  </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= event.price %>
-  </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= event.location %>
-  </p>
+
 
 </div>

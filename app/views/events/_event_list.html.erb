@@ -1,0 +1,10 @@
+<% @events.each do |event| %>
+    <section>
+    <div class="section-content">
+        <%= render event %>
+        <p>
+        <%= link_to "Show this event", event %>
+        </p>
+    </div>
+    </section>
+<% end %>
